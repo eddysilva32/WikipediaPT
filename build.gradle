@@ -16,6 +16,14 @@ dependencies {
     implementation group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '3.141.59'
     testImplementation group: 'info.cukes', name: 'cucumber-picocontainer', version: '1.2.5'
     implementation group: 'com.vimalselvam', name: 'cucumber-extentsreport', version: '3.1.1'
-    implementation group: 'com.aventstack', name: 'extentreports', version: '5.0.1'
+    implementation group: 'com.aventstack', name: 'extentreports', version: '3.0.7'
     implementation group: 'org.freemarker', name: 'freemarker', version: '2.3.28'
+
+    test {
+        useJUnit()
+    }
+    task smokeTest(type: Test) {
+        include '**/Runner*'
+    }
 }
+

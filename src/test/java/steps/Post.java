@@ -1,5 +1,8 @@
 package steps;
 
+import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
 import cucumber.api.java.pt.Dado;
 import cucumber.api.java.pt.Entao;
 import cucumber.api.java.pt.Quando;
@@ -19,7 +22,7 @@ public class Post extends Base {
         this.base = base;
     }
 
-    @Dado("^que acesso a Wikipedia em Portugues$")
+   /* @Dado("^que acesso a Wikipedia em Portugues$")
     public void queAcessoAWikipediaEmPortugues() {
         base.driver.get(base.url);     // Abre o navegador no site alvo (extendendo a base)
     }
@@ -30,6 +33,25 @@ public class Post extends Base {
     }
 
     @Entao("^Exibe a expressão \"([^\"]*)\" no titulo da guia$")
+    public void exibeAExpressaoNoTituloDaGuia(String produto) {
+        //WebDriverWait wait = new WebDriverWait(base.driver, 6);
+        //wait.until(ExpectedConditions.titleIs(produto + " - Wikipédia, a enciclopédia livre"));
+        assertTrue(base.driver.getTitle().contains(produto));
+    }
+
+    */
+
+    @Given("^que acesso a Wikipedia em Portugues$")
+    public void queAcessoAWikipediaEmPortugues() {
+        base.driver.get(base.url);     // Abre o navegador no site alvo (extendendo a base)
+    }
+
+    @When("^pesquiso por \"([^\"]*)\"$")
+    public void pesquisoPor(String produto) {
+        base.driver.findElement(By.id("searchInput")).sendKeys(produto + Keys.ENTER);
+    }
+
+    @Then("^Exibe a expressão \"([^\"]*)\" no titulo da guia$")
     public void exibeAExpressaoNoTituloDaGuia(String produto) {
         //WebDriverWait wait = new WebDriverWait(base.driver, 6);
         //wait.until(ExpectedConditions.titleIs(produto + " - Wikipédia, a enciclopédia livre"));
