@@ -18,6 +18,7 @@ dependencies {
     implementation group: 'com.vimalselvam', name: 'cucumber-extentsreport', version: '3.1.1'
     implementation group: 'com.aventstack', name: 'extentreports', version: '3.0.7'
     implementation group: 'org.freemarker', name: 'freemarker', version: '2.3.28'
+}
 
     test {
         useJUnit()
@@ -25,5 +26,5 @@ dependencies {
     task smokeTest(type: Test) {
         include '**/Runner*'
     }
-}
+
 
